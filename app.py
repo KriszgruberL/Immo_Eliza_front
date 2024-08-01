@@ -530,6 +530,6 @@ if st.session_state.submitted:
         st.image("assets/1_lTWsQr8phKRUVGMjL7SqGg.webp", use_column_width=True)
         
     
-    st.markdown(f"<br><h4 class='success_msg'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
+    st.markdown(f"<br><h4 class='success-msg'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
 
     st.button("Reset", on_click=st.session_state.clear)
