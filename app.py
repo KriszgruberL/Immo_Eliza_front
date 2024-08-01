@@ -529,6 +529,5 @@ if st.session_state.submitted:
         st.markdown("<br><br>", unsafe_allow_html=True)
         st.image("assets/1_lTWsQr8phKRUVGMjL7SqGg.webp", use_column_width=True)
         
-    
-    st.markdown(f"<br><h4 style='text-align:center; background-color: var(--success-color); color: white; border-radius: 1rem 1rem 0rem 1rem; padding: 1rem;'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
+    st.markdown(f"<br><h4 style='text-align:center; background : var(--accent-color); border-radius : 1rem 1rem 0rem 1rem'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
     st.button("Reset", on_click=st.session_state.clear)
