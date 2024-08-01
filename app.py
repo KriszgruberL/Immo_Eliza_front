@@ -9,8 +9,10 @@ st.markdown(
     """
     <style>
     :root {
-        --accent-color: #FF4B4B;
-        --text_color: #FAFAFA;
+        --accent-color: #ea638c;
+        --text_color: #ffd9da;
+        --success_color : #367f5c;
+        --error_color : #FFC107;
     }
 
     div.stButton {text-align:center;}
@@ -52,7 +54,7 @@ st.markdown(
     }
     
     .small {
-        color:deeppink; 
+        color:var(--error_color); 
         font-size:small
     }
     </style>
@@ -520,6 +522,6 @@ if st.session_state.submitted:
         st.image("assets/1_lTWsQr8phKRUVGMjL7SqGg.webp", use_column_width=True)
         
     
-    st.markdown(f"<br><h4 style='text-align:center; background : var(--accent-color); border-radius : 1rem 1rem 0rem 1rem'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
+    st.markdown(f"<br><h4 style='text-align:center; background : var(--success-color); border-radius : 1rem 1rem 0rem 1rem'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
 
     st.button("Reset", on_click=st.session_state.clear)
