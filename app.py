@@ -57,6 +57,14 @@ st.markdown(
         color:var(--error_color); 
         font-size:small
     }
+    
+    .success-msg {
+        text-align: center; 
+        background: var(--success-color); 
+        border-radius: 1rem 1rem 0rem 1rem;
+        color: white;
+        padding: 1rem;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -522,6 +530,6 @@ if st.session_state.submitted:
         st.image("assets/1_lTWsQr8phKRUVGMjL7SqGg.webp", use_column_width=True)
         
     
-    st.markdown(f"<br><h4 style='text-align:center; background : var(--success-color); border-radius : 1rem 1rem 0rem 1rem'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
+    st.markdown(f"<br><h4 class='success_msg'>Predicted price: {predictions_original.flatten()[0]:.2f} €</h4>", unsafe_allow_html=True)
 
     st.button("Reset", on_click=st.session_state.clear)
