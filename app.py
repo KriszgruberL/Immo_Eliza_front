@@ -177,7 +177,7 @@ def prepare_data_for_prediction(region, province, feature_names, data):
 
 # Form container
 if not st.session_state.submitted:
-    with st.container():
+    with st.container(border = True):
         st.write("Property Details")
         col1, col2 = st.columns(2)
         with col1:
@@ -313,7 +313,7 @@ if not st.session_state.submitted:
             horizontal=True,
         )
         
-    with st.container():
+    with st.container(border = True):
         st.write("Inside Details")
         col1, col2 = st.columns(2)
         with col1:
@@ -355,7 +355,7 @@ if not st.session_state.submitted:
                 help="Enter a numerical value",
             )
 
-    with st.container():
+    with st.container(border = True):
         st.write("Outside Details")
         garden = st.radio(
             "Does the house have a garden?",
