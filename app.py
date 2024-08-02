@@ -469,11 +469,6 @@ if not st.session_state.submitted:
     
     # Ensure all values are not None and of correct type
     st.session_state.data = {k: (0 if v is None else v) for k, v in st.session_state.data.items()}
-    st.write(st.session_state.shower)
-    st.write(st.session_state.data["BathroomCount"])
-    st.write(st.session_state.data)
-
-    
     if st.button("Predict !", on_click=handle_submit) : 
             st.session_state.submitted = True
             
