@@ -316,7 +316,7 @@ if not st.session_state.submitted:
             format_func=peb_stringify,
         )
 
-        flood = st.radio(
+        st.session_state.flood = st.radio(
             "Is it in a flooding zone?",
             options=["Yes", "No"],
             index=None,
@@ -398,7 +398,7 @@ if not st.session_state.submitted:
             horizontal=True,
         )
 
-    st.write(flood)
+    st.write(st.session_state.flood)
     st.write(garden)
     st.write(kitchen)
     st.write(terrace)
@@ -408,6 +408,7 @@ if not st.session_state.submitted:
     st.write(toilet)
     st.write(bath)
     st.write(garden_area)
+    st.write("bEFORE THE PREDICT")
     
     if st.button("Predict !", on_click=handle_submit) : 
             st.session_state.submitted = True
@@ -439,6 +440,7 @@ if st.session_state.submitted:
         "GardenArea": st.session_state.garden_area,
         "SwimmingPool": 1 if st.session_state.pool == "Yes" else 0,
         "Terrace": 1 if st.session_state.terrace == "Yes" else 0,
+
     }
 
     data = prepare_data_for_prediction(st.session_state.region, st.session_state.province, feature_names, data)
