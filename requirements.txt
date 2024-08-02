@@ -4,3 +4,5 @@ pandas==2.2.2
 pillow==10.4.0
 scikit-learn==1.5.1
 streamlit==1.37.0
+
+--extra-index-url=https://packagecloud.io/github/git-lfs/pypi/simple
