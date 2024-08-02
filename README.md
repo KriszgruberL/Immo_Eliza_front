@@ -110,25 +110,25 @@ The application has custom CSS styling to enhance the user interface. The primar
 
 ## 🤖 Functions
 
-### `handle_submit()`
+#### `handle_submit()`
 Callback function that sets the `submitted` state to `True` and calls the `progress_bar` function.
 
-### `peb_stringify(i: int) -> str`
+#### `peb_stringify(i: int) -> str`
 Converts an index to the corresponding PEB (Energy Performance Certificate) rating.
 
-### `state_stringify(i: int) -> str`
+#### `state_stringify(i: int) -> str`
 Converts an index to the corresponding state description of the building. Ensures valid indices and returns a placeholder if invalid.
 
-### `progress_bar()`
+#### `progress_bar()`
 Displays a progress bar indicating that an operation is in progress. It updates the progress bar in increments until complete.
 
-### `load_model_and_scalers()`
+#### `load_model_and_scalers()`
 Loads the pre-trained model and scalers from the specified files. Returns the model, feature scaler, and target scaler.
 
-### `prepare_data_for_prediction(region: str, province: str, feature_names: list, data: dict) -> dict`
+ #### `prepare_data_for_prediction(region: str, province: str, feature_names: list, data: dict) -> dict`
 Prepares the data for prediction by initializing features and performing one-hot encoding on the region and province. Returns the updated data dictionary.
 
-### `import_feature() -> list`
+#### `import_feature() -> list`
 Loads and returns the list of feature names from `feature_names.json`.
 
 ## 📚 Libraires 
