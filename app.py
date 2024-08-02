@@ -398,6 +398,17 @@ if not st.session_state.submitted:
             horizontal=True,
         )
 
+    st.write(flood)
+    st.write(garden)
+    st.write(kitchen)
+    st.write(terrace)
+    st.write(pool)
+    st.write(bed)
+    st.write(shower)
+    st.write(toilet)
+    st.write(bath)
+    st.write(garden_area)
+    
     if st.button("Predict !", on_click=handle_submit) : 
             st.session_state.submitted = True
         
