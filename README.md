@@ -16,44 +16,57 @@
 
 ## 📚 Overview
 
-This project focuses on preprocessing and analyzing real estate data to predict property prices. The preprocessing pipeline includes data filtering, encoding, imputations, and scaling to prepare the data for machine learning models. The main model used is a RandomForestRegressor, but the pipeline is designed to be flexible for other regressors as well.
+This project is a web-based application for predicting house prices based on various features. It uses machine learning models to provide estimates based on user input. The application is built using Python, Streamlit, and other data science libraries.
 
-## 📁 Link to .pkl
+## 🎙️ Deployed
+https://immo--eliza-front-lukiwa.streamlit.app/
 
-<a href="https://drive.google.com/drive/folders/1P9cWejusu_b2_qOeUjrPpoTJ-sfiN_W0?usp=sharing" target="_blank"> <img alt="GoogleDrive" src="https://img.shields.io/badge/Google_Drive%20-%20Google_Drive?style=for-the-badge&logo=googledrive&labelColor=%23ADD8E6%09&color=%236495ED%09" style="border-radius:0.5rem"></a>
+
 
 ## 🚧 Project Structure
 ```
-nom_projet/
+IMMO_ELIZA_FRONT/
+│
+├── .streamlit/
+│   └── config.toml
+│
 ├── .vscode/
-│   ├── settings.json
+│   └── settings.json
+│
+├── assets/
+│   └── (Images and other assets)
+│
 ├── data/
+│   ├── feature_names.json
+│   ├── feature_scaler.pkl
 │   ├── final_dataset.json
-│   ├── zipcode-belgium.json
-│   ├── preprocessed_df.pkl
 │   ├── model.pkl
-├── preprocessing/
-│   ├── modeling.py
-│   ├── preprocessing.py
-│   ├── draft2.ipynb
+│   ├── preprocessed_df.csv
+│   ├── preprocessed_df.pkl
+│   ├── target_scaler.pkl
+│   └── zipcode-belgium.json
+│
+├── .gitignore
+├── .gitattributes
 ├── README.md
+├── app.py
 └── requirements.txt
-└── Immo_Eliza.pptx
+
 ```
 
 ## ⚒️ Setup
 
 1. **Clone the repository**:
     ```sh
-    https://github.com/KriszgruberL/Immo_eliza_ML.git
-    cd Immo_eliza_ML
+    https://github.com/KriszgruberL/Immo_Eliza_front.git
+    cd Immo_Eliza_front
     ```
 
 2. **Create a virtual environment**:
     ```sh
-    python -m venv venv
+    python -m env env
     source venv/bin/activate  
-    # On Windows use `venv\Scripts\activate`
+    # On Windows use `env\Scripts\activate`
     ```
 
 3. **Install the required packages**:
@@ -63,78 +76,39 @@ nom_projet/
 
 ## ⚙️ Usage
 
-1. To run the preprocessing, execute the `preprocessing.py` script:
+1. To run the application :
     ```sh
-    python preprocessing.py
+    streamlit run app.py
     ```
+2. Fill out the form: Enter the required details like region, province, property type, construction year, etc.
 
-1. To run the modeling, execute the `modeling.py` script:
-    ```sh
-    python modeling.py
-    ```
+3. Submit the form: Click on the "Predict!" button to get the estimated price.
+
+4. Reset: Click the "Reset" button to clear all the input fields and start over.
+
 
 
 ### 👀 Classes Overview
 
 ---
-#### **modeling.py**
-Contain the modeling features
+`Model and Data
 
-**Functions:**
-- `load_preprocessed_data`: This function loads the preprocessed data from a pickle file. 
+    `Model`: The pre-trained model is stored in model.pkl. The model was trained on a dataset that includes various property features.
 
-- `prepare_data`: This function separates the features and the target variable from the DataFrame. 
-
-- `print_score`: This function prints the performance metrics of the model. 
-- `main`: This function is the main entry point of the script. It loads the data, prepares it, trains the model, and evaluates it. 
-
-#### **preprocessing.py**
-Contain the preprocessing features
-
-**Functions:**
-- ``filter_data``: This function filters the data based on specific conditions, such as price, construction year, garden area, and counts of showers and toilets.
-
-- ``encode_binary_value``: This function encodes binary values for specific columns. 
-
-- ``impute_and_encode``: This function imputes missing values and encodes categorical variables. 
-
-- ``map_values``: This function maps values for specific columns to binary values. 
-
-- ``limit_number_of_facades``: This function limits the number of facades to a maximum of 4. 
-
-- ``fill_na``: This function fills missing values for specific columns with default values. 
-
-- ``knn_impute``: This function imputes missing values using KNN imputation. 
-
-- ``drop_categorical``: This function drops categorical columns. 
-
-- `preprocess_pipeline`: This function creates a preprocessing pipeline. 
-
-- `main`: This function is the main entry point of the script. It loads the data, applies preprocessing, and saves the preprocessed data. 
+    `Data`:
+        feature_names.json: Contains the list of features used in the model.
+        final_dataset.json: The dataset used for training the model.
+        feature_scaler.pkl: Scaler for normalizing features.
+        target_scaler.pkl: Scaler for normalizing the target variable.
+        zipcode-belgium.json: Contains mapping of zip codes to regions.
 
 
-#### **data/**
-Contains data files used and generated by the scripts.
-
-- `final_dataset.json`: Data scrapped from ImmoWeb.be
-- `zipcode-belgium.json`: Valid zip code in Belgium
-- `preprocessed_df.pkl`: Preprocessing saved as a pickle file
-- `preprocessed_df.pkl`: Model saved as a pickle file
-
----
-#### **Other Files**
-
-- `.gitignore`: Specifies which files and directories to ignore in Git.
-- `README.md`: Provides an overview and instructions for the project.
-- `requirements.txt`: Lists required Python packages and their versions.
-- `Immo_Eliza_pp.pptx`: Short powerpoint
-
----
 
 ## 🎯 Requirements
 
+- `numpy==2.0.1`
 - `pandas==2.2.2`
-- `numpy==2.0.0`
-- `seaborn==0.11.2`
-- `scikit-learn`
-- `setuptools`
+- `pillow==10.4.0`
+- `scikit-learn==1.5.1`
+- `streamlit==1.37.0`
+- `--extra-index-url=https://packagecloud.io/github/git-lfs/pypi/simple`
